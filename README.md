@@ -34,6 +34,14 @@ python main.py
 
 Your output will appear on the current folder. (including `gv` and `pdf`)
 
+## Effect
+
+<details>
+  <summary>Click to unfold (SPOILER ALERT)</summary>
+
+  <img src="asset/result.png">
+</details>
+
 ## Author
 
 👤 **MiracleXYZ**

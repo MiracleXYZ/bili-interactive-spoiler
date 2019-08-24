@@ -8,7 +8,7 @@
 
 > 哔哩哔哩互动视频剧透工具
 > 
-> [剧透警告] 不要滥用！滥用行为造成的后果我们概不负责。
+> **[剧透警告] 不要滥用！滥用行为造成的后果我们概不负责。**
 > 
 > Click [here](README.md) for English version.
 
@@ -33,6 +33,14 @@ python main.py
 ```
 
 执行完毕后，生成的结果将会出现在同一文件夹下。（包括 `gv` 和 `pdf` 文件）
+
+## 效果
+
+<details>
+  <summary>点击查看效果（剧透慎点）</summary>
+
+  <img src="asset/result.png">
+</details>
 
 
 ## 作者
