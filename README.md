@@ -26,7 +26,25 @@ Make sure you have installed Graphviz on your computer and put it to `PATH`.
 
 ## Usage
 
-Configure the file `config.py` then run
+### config.py
+
+Configure the file `config.py`. Parameters are:
+
+- `aid`: video id
+- `graph_version`: graph version
+- `fontname`: font name (Now it's Source Han Sans CN. You can change it to any other installed Chinese fonts.)
+- `output`: output file name (Ends with '.gv')
+- `layout`: layout ('horizontal' or 'edge')
+
+Here's how to get `graph_version`:
+
+1. Open the video web page. Press `F12` to toggle Developers Tool, and switch to `Network` tab.
+2. Input `nodeinfo` in `Filter` textbox.
+3. Press `F5` to refresh the page and wait.
+4. When something pops up on the list, right click on the first URL and select `Copy > Copy link address`.
+5. Paste the link into a text editor. Find `graph_version=...&` and copy the content represented by `...`. This is exactly what we want: `graph_version` parameter.
+
+### main.py
 
 ```sh
 python main.py

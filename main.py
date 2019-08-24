@@ -4,23 +4,30 @@ from graphviz import Digraph
 import requests
 from config import *
 
+node_infos = {}
 
 def get_node_info(node_id=''):
     url = 'https://api.bilibili.com/x/stein/nodeinfo'
     params = {
         'aid': aid,
         'node_id': node_id,
+        'graph_version': graph_version,
         'platform': 'pc',
         'portal': 0,
         'screen': 0,
-        'graph_version': 28883
     }
     return requests.get(url, params=params).json()
 
 
 def get_node(node_id):
-    print(node_id, end='\t')
-    info = get_node_info(node_id)['data']
+    
+    if node_id in node_infos.keys():
+        info = node_infos[node_id]
+    else:
+        print(node_id)
+        info = get_node_info(node_id)['data']
+        node_infos[node_id] = info
+
     if 'edges' in info.keys():
         choices = info['edges']['choices']
     else:
@@ -63,7 +70,8 @@ if __name__ == '__main__':
     G = Digraph(
         'av{}'.format(aid), 
         node_attr={'fontname': fontname}, 
-        edge_attr={'fontname': fontname}
+        edge_attr={'fontname': fontname},
+        strict=True
     )
 
     initial_node(nodes)
