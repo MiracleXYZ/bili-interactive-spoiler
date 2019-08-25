@@ -33,6 +33,7 @@ Configure the file `config.py`. Parameters are:
 - `aid`: video id
 - `graph_version`: graph version
 - `fontname`: font name (Now it's Source Han Sans CN. You can change it to any other installed Chinese fonts.)
+- `interval`: interval (Break time after node requested, in seconds)
 - `output`: output file name (Ends with '.gv')
 - `layout`: layout ('horizontal' or 'edge')
 

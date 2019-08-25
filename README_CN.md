@@ -1,6 +1,6 @@
 <h1 align="center">⚠ bili-interactive-spoiler ⚠</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.2-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/Miracle_XYZ">
     <img alt="Twitter: Miracle_XYZ" src="https://img.shields.io/twitter/follow/Miracle_XYZ.svg?style=social" target="_blank" />
   </a>
@@ -33,6 +33,7 @@ pip install -r requirements.txt
 - `aid`: 视频av号
 - `graph_version`: 图表版本号
 - `fontname`: 字体名称（这里是「思源黑体」，可以改为其他的中文字体名称）
+- `interval`: 时间间隔（每访问一个节点后的休息时间，以秒为单位）
 - `output`: 输出文件名（以'.gv'结尾）
 - `layout`: 布局：'horizontal'（横向）, 'edge'（纵向，选项在边上表示）
 
