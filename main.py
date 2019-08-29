@@ -3,8 +3,35 @@
 from graphviz import Digraph
 import requests
 import time
+from bs4 import BeautifulSoup
+import json
 from config import *
 
+def get_graph_version(aid):
+    videopage = requests.get('https://api.bilibili.com/x/web-interface/view?aid=56415139').json()
+    cid = videopage['data']['pages'][0]['cid']
+
+    headers = {
+        'Accept': '*/*',
+        'Referer': 'https://www.bilibili.com/video/av{}'.format(aid),
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+        'Sec-Fetch-Mode': 'cors',
+    }
+
+    params = (
+        ('id', 'cid:{}'.format(cid)),
+        ('aid', str(aid)),
+    )
+
+    player = requests.get('https://api.bilibili.com/x/player.so', headers=headers, params=params)
+    player.encoding = player.apparent_encoding
+    soup = BeautifulSoup(player.text, 'lxml')
+    interaction = json.loads(soup.select('interaction')[0].get_text())
+    graph_version = interaction['graph_version']
+    print('graph_version: {}'.format(graph_version))
+    return graph_version
+    
+graph_version = get_graph_version(aid)
 node_infos = {}
 graph_nodes = []
 graph_edges = []
@@ -108,6 +135,7 @@ def initial_node(nodes):
 
 
 if __name__ == '__main__':
+
     nodes = get_node(get_node_info()['data']['node_id'])
 
     G = Digraph(
@@ -120,7 +148,7 @@ if __name__ == '__main__':
     initial_node(nodes)
     draw_nodes(nodes)
 
-    G.render(output)
+    G.render(output, format=output_format)
 
     print('')
     print('Done.')

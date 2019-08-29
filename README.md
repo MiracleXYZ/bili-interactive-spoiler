@@ -1,6 +1,6 @@
 <h1 align="center">⚠ bili-interactive-spoiler ⚠</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.2-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/Miracle_XYZ">
     <img alt="Twitter: Miracle_XYZ" src="https://img.shields.io/twitter/follow/Miracle_XYZ.svg?style=social" target="_blank" />
   </a>
@@ -31,19 +31,11 @@ Make sure you have installed Graphviz on your computer and put it to `PATH`.
 Configure the file `config.py`. Parameters are:
 
 - `aid`: video id
-- `graph_version`: graph version
 - `fontname`: font name (Now it's Source Han Sans CN. You can change it to any other installed Chinese fonts.)
 - `interval`: interval (Break time after node requested, in seconds)
 - `output`: output file name (Ends with '.gv')
+- `output_format`: output file format (pdf/png/svg)
 - `layout`: layout ('horizontal' or 'edge')
-
-Here's how to get `graph_version`:
-
-1. Open the video web page. Press `F12` to toggle Developers Tool, and switch to `Network` tab.
-2. Input `nodeinfo` in `Filter` textbox.
-3. Press `F5` to refresh the page and wait.
-4. When something pops up on the list, right click on the first URL and select `Copy > Copy link address`.
-5. Paste the link into a text editor. Find `graph_version=...&` and copy the content represented by `...`. This is exactly what we want: `graph_version` parameter.
 
 ### main.py
 
@@ -51,7 +43,7 @@ Here's how to get `graph_version`:
 python main.py
 ```
 
-Your output will appear on the current folder. (including `gv` and `pdf`)
+Your output will appear on the current folder. (including `gv` and output file)
 
 ## Effect
 

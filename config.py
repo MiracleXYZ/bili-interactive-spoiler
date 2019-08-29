@@ -1,9 +1,9 @@
-aid = 64645833
-graph_version = 21995
+aid = 65102499
 
 fontname = 'Source Han Sans CN'
-interval = 1
+interval = 0.5
 
 output = 'spoil_{}.gv'.format(aid)
+output_format = 'pdf' # pdf / png / svg
 
 layout = 'edge'
