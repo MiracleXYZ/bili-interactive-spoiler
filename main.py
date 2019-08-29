@@ -8,7 +8,7 @@ import json
 from config import *
 
 def get_graph_version(aid):
-    videopage = requests.get('https://api.bilibili.com/x/web-interface/view?aid=56415139').json()
+    videopage = requests.get('https://api.bilibili.com/x/web-interface/view?aid={}'.format(aid)).json()
     cid = videopage['data']['pages'][0]['cid']
 
     headers = {
